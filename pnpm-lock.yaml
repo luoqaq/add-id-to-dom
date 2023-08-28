@@ -5,7 +5,6 @@ specifiers:
   '@babel/parser': ^7.22.7
   '@babel/traverse': ^7.22.8
   '@babel/types': ^7.22.5
-  uuid: ^9.0.0
   wxml: ^2.2.2
 
 dependencies:
@@ -13,7 +12,6 @@ dependencies:
   '@babel/parser': 7.22.7
   '@babel/traverse': 7.22.8
   '@babel/types': 7.22.5
-  uuid: 9.0.0
   wxml: 2.2.2
 
 packages:
@@ -236,11 +234,6 @@ packages:
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
-    dev: false
-
-  /uuid/9.0.0:
-    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
-    hasBin: true
     dev: false
 
   /wxml/2.2.2:

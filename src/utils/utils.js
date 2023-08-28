@@ -4,7 +4,6 @@ const parser = require('@babel/parser')
 const t = require('@babel/types')
 const generator = require('@babel/generator').default
 const { Tags } = require('../constants/constants')
-const uuid = require('uuid')
 const wxml = require('wxml')
 
 // 读取目录 
@@ -62,14 +61,14 @@ function transJsxCode(code, idPrefix) {
     sourceType: 'module',
     plugins: ['jsx', 'typescript']
   })
-
+  let index = 0;
   const elementTypes = ['JSXOpeningElement']
   traverse(ast, {
     enter(path) {
       if (path?.node?.type && elementTypes.includes(path.node.type) && path.node.name && Tags.includes(path.node.name?.name)) {
         const { attributes = [] } = path.node
         if (!attributes.filter(attr => attr.name?.name === 'id' || attr.name === 'id')?.length) {
-          const idAttr = t.jsxAttribute(t.jsxIdentifier('id'), t.stringLiteral(`${idPrefix}-${uuid.v1()}`));
+          const idAttr = t.jsxAttribute(t.jsxIdentifier('id'), t.stringLiteral(`${idPrefix}-${+new Date()}-${index++}`));
           if (path.node.attributes) {
             path.node.attributes.push(idAttr)
           } else {
@@ -89,6 +88,7 @@ function transJsxCode(code, idPrefix) {
 
 function transWxmlCode(code, idPrefix) {
   const ast = wxml.parse(code)
+  let index = 0;
   wxml.traverse(ast, function visitor(node, parent) {
     const type = node.type;
     const parentNode = node.parentNode;
@@ -101,7 +101,7 @@ function transWxmlCode(code, idPrefix) {
         // const childNodes = node.childNodes;
         // const selfClosing = node.selfClosing; // if a node is self closing, like `<tag />`
         if (!attributes.id) {
-          attributes.id = `${idPrefix}-${uuid.v1()}`
+          attributes.id = `${idPrefix}-${+new Date()}-${index++}`
         }
       }
     } else if (type === wxml.NODE_TYPES.TEXT) {
