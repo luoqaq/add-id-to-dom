@@ -6,6 +6,7 @@ specifiers:
   '@babel/traverse': ^7.22.8
   '@babel/types': ^7.22.5
   uuid: ^9.0.0
+  wxml: ^2.2.2
 
 dependencies:
   '@babel/generator': 7.22.9
@@ -13,6 +14,7 @@ dependencies:
   '@babel/traverse': 7.22.8
   '@babel/types': 7.22.5
   uuid: 9.0.0
+  wxml: 2.2.2
 
 packages:
 
@@ -239,4 +241,8 @@ packages:
   /uuid/9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
+    dev: false
+
+  /wxml/2.2.2:
+    resolution: {integrity: sha512-QHw0uB6AdyfDgLLojSqeyxA3RTb0uo9AeJ+H0FnIlQDyC8VUAWyZRL2YhCTEdrXcr2tYDfflmZo6FtVj1RJRsQ==}
     dev: false
